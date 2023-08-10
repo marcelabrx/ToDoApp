@@ -1,3 +1,5 @@
+import Filters from "./Filters"
+
 function Form () {
     return (
         <form action="" className="flex flex-col space-y-4 w-full">
@@ -16,6 +18,7 @@ function Form () {
                     <i className="fa-solid fa-circle-exclamation mr-2" />Complete this field<i/>
                 </p>
             </section>
+            <Filters/>
         </form>
     )
 }

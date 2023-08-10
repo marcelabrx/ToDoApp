@@ -1,5 +1,5 @@
 import Header from "./components/Header"
-import contentTask from "./components/contentTask"
+import ContentTask from "./components/ContentTask"
 import Footer from "./components/Footer"
 
 
@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       <Header/>
-      <contentTask/>
+      <ContentTask/>
       <Footer/>
     </>
   )

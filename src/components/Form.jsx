@@ -1,13 +1,35 @@
+import { useState } from "react"
 import Filters from "./Filters"
 
-function Form () {
+function Form ({setGetTasks}) {
+    const [task, setTask] = useState('')
+
+    const inputChange = (event) => {
+        setTask(event.target.value)
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        if (task !=""){
+            const newTask = {
+                id: crypto.randomUUID(),
+                value: "", 
+                name:  task
+            }
+            setGetTasks((prevTasks) => [...prevTasks, newTask])
+            setTask("")
+        } 
+    }
+
     return (
-        <form action="" className="flex flex-col space-y-4 w-full">
+        <form onSubmit={handleSubmit} className="flex flex-col space-y-4 w-full mb-8">
             <section className="bg-gray-700 p-4 w-full">
                 <section className="flex flex-col space-y-2 lg:flex-row lg:space-y-0 lg:items-center lg:justify-between">
                     <input
                     type="text"
-                    className="lg:w-3/4 px-2 py-1 border outline-0 caret-pink-500  rounded lg:py-2 lg:pr-6 lg:mr-4"
+                    value={task}
+                    onChange={inputChange}
+                    className="text-black lg:w-3/4 px-2 py-1 border outline-0 caret-pink-500  rounded lg:py-2 lg:pr-6 lg:mr-4"
                     placeholder="Enter a task"
                     />
                     <button className="lg:w-1/4 px-4 py-2 bg-blue-500 text-white rounded">

@@ -21,7 +21,8 @@ function ContentTask () {
                         task={todo.name}
                         value={todo.value}
                         id={todo.id}
-                        // setGetTasks={setGetTasks}
+                        getTasks={getTasks}
+                        setGetTasks={setGetTasks}
                         />
                     )
                 })}

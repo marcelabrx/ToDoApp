@@ -1,11 +1,16 @@
 import { useState } from "react"
+import { IoIosWarning } from "react-icons/io"
 import Filters from "./Filters"
 
 function Form ({setGetTasks, setFilters}) {
     const [task, setTask] = useState('')
-
+    const [isTaskEmpty, setIsTaskEmpty] = useState(false)
+    
     const inputChange = (event) => {
         setTask(event.target.value)
+        if (isTaskEmpty) {
+            setIsTaskEmpty(false)
+        }
     }
 
     const handleSubmit = (event) => {
@@ -18,7 +23,9 @@ function Form ({setGetTasks, setFilters}) {
             }
             setGetTasks((prevTasks) => [...prevTasks, newTask])
             setTask("")
-        } 
+        } else {
+            setIsTaskEmpty(true)
+        }
     }
 
     return (
@@ -36,9 +43,11 @@ function Form ({setGetTasks, setFilters}) {
                     Add Task
                     </button>
                 </section>
-                <p className="mt-2 text-red-500 font-bold hidden">
-                    <i className="fa-solid fa-circle-exclamation mr-2" />Complete this field<i/>
-                </p>
+                {isTaskEmpty && (
+                    <p className="flex mt-2 text-red-500 font-bold">
+                        <IoIosWarning className="mr-2 mt-1" />Complete this field
+                    </p>
+                )}
             </section>
             <Filters setFilters={setFilters}/>
         </form>

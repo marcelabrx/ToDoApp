@@ -45,7 +45,7 @@ function Form ({setGetTasks, setFilters}) {
                 </section>
                 {isTaskEmpty && (
                     <p className="flex mt-2 text-red-500 font-bold">
-                        <IoIosWarning className="mr-2 mt-1" />Complete this field
+                        <IoIosWarning className="mr-2 mt-1" />Complete this field.
                     </p>
                 )}
             </section>

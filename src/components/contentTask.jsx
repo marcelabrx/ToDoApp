@@ -6,8 +6,17 @@ function ContentTask () {
         return localStorage.getItem("task") ? JSON.parse(localStorage.getItem("task")) : []
     })
     localStorage.setItem("task", JSON.stringify(getTasks))
-    
 
+    const handleDoneButton = (taskId) => {
+        const statusTask = getTasks.map((todo) =>
+        todo.id === taskId
+        ? { ...todo, status: todo.status === true ? false : true }
+        : todo
+        )
+        localStorage.setItem("task", JSON.stringify(statusTask))
+        setGetTasks(statusTask)
+    }
+    
 
     return (
         <div className="h-screen">
@@ -19,10 +28,11 @@ function ContentTask () {
                         <AddTask
                         key={todo.id}
                         task={todo.name}
-                        value={todo.value}
+                        status={todo.status}
                         id={todo.id}
                         getTasks={getTasks}
                         setGetTasks={setGetTasks}
+                        handleDoneButton={handleDoneButton}
                         />
                     )
                 })}

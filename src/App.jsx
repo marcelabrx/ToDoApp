@@ -3,8 +3,6 @@ import ContentTask from "./components/ContentTask"
 import Footer from "./components/Footer"
 
 
-
-
 function App() {
   
   return (

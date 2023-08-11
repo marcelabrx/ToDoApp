@@ -17,9 +17,8 @@ function AddTask ({id,task, handleDoneButton, value, getTasks, setGetTasks}) {
                 <h2 className={`"text-md font-bold mr-20 text-white" ${done ? "line-through text-gray-800" : "text-md font-bold mr-20 text-white"}`}>{task}</h2>
                 
                 <div className="space-x-2">
-                <button onClick={toggleCompleted} className={`"p-3 bg-green-500 text-white font-bold rounded-3xl outline-0" ${done ? "bg-gray-600 p-3 text-white font-bold rounded-3xl outline-0" : "p-3 bg-green-500 text-white font-bold rounded-3xl outline-0"}`}>
-                    {/* <i className="fa-solid fa-circle-check" /> */}
-                    <FaCheckCircle className="text-lg font-extrabold"/>
+                    <button onClick={toggleCompleted} className={`"p-3 bg-green-500 text-white font-bold rounded-3xl outline-0" ${done ? "bg-gray-800 p-3 text-white font-bold rounded-3xl outline-0" : "p-3 bg-green-500 text-white font-bold rounded-3xl outline-0"}`}>
+                        <FaCheckCircle className="text-lg font-extrabold"/>
                     </button>
                     <DeleteButton id={id} getTasks={getTasks} setGetTasks={setGetTasks}/>
                 </div>

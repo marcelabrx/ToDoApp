@@ -1,4 +1,4 @@
-
+import {FaCheckCircle} from "react-icons/fa"
 function Header() {
     return (
         <header className="flex items-center justify-center h-32 my-8">
@@ -12,7 +12,7 @@ function Header() {
                 <span className="inline-block">I</span>
                 <span className="inline-block">S</span>
                 <span className="inline-block">T</span>
-                <i className="fa-solid fa-circle-check inline-block animate-bounce text-green-400" />
+                <FaCheckCircle className="inline-block animate-bounce text-green-400 ml-2"/>
             </h1>
         </header>
     )

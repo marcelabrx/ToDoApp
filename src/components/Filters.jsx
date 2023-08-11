@@ -1,16 +1,7 @@
 
 function Filters ({ setFilters }) {
   const taskStatusChange = (e) => {
-   const selectValue = e.target.value
-    console.log(e.target.value)
-  
-    if (selectValue === '') {
-      setFilters("")
-    } else if (selectValue === 'complete') {
-      setFilters(true)
-    } else if (selectValue === 'incomplete') {
-      setFilters(false)
-    }
+   setFilters(e.target.value)
   }
 
   return (

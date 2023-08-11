@@ -1,7 +1,7 @@
 import { useState } from "react"
 import Filters from "./Filters"
 
-function Form ({setGetTasks}) {
+function Form ({setGetTasks, setFilters}) {
     const [task, setTask] = useState('')
 
     const inputChange = (event) => {
@@ -10,12 +10,11 @@ function Form ({setGetTasks}) {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        if (task !=""){
+        if (task.trim() !=""){
             const newTask = {
                 id: crypto.randomUUID(),
-                // status: false, 
                 value: "incomplete", 
-                name:  task
+                description: task.trim() 
             }
             setGetTasks((prevTasks) => [...prevTasks, newTask])
             setTask("")
@@ -41,7 +40,7 @@ function Form ({setGetTasks}) {
                     <i className="fa-solid fa-circle-exclamation mr-2" />Complete this field<i/>
                 </p>
             </section>
-            <Filters/>
+            <Filters setFilters={setFilters}/>
         </form>
     )
 }

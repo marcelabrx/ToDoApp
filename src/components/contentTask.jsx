@@ -44,6 +44,7 @@ function ContentTask () {
                         setGetTasks={setGetTasks}
                         handleDoneButton={handleDoneButton}
                         />
+                        
                     )
                 })}
                 

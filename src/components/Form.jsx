@@ -13,7 +13,8 @@ function Form ({setGetTasks}) {
         if (task !=""){
             const newTask = {
                 id: crypto.randomUUID(),
-                status: false, 
+                // status: false, 
+                value: "incomplete", 
                 name:  task
             }
             setGetTasks((prevTasks) => [...prevTasks, newTask])
